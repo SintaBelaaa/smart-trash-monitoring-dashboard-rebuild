@@ -1,0 +1,17 @@
+{
+  "name": "smart-trash-monitoring",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Dashboard Smart Trash Monitoring ESP32 dan sensor infrared",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^5.2.1"
+  }
+}

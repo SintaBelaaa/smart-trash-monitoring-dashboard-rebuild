@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f766e">
+  <title>Smart Trash Monitoring | PLN UP3 Palembang</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/dashboard.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+  <div class="logo">ST</div>
+  <div class="brand">
+    <p class="eyebrow">INTERNET OF THINGS</p>
+    <h1>Smart Trash Monitoring</h1>
+    <p>Monitoring kotak sampah otomatis · PLN UP3 Palembang</p>
+  </div>
+  <div class="tag"><span></span> Dashboard IoT</div>
+</header>
+
+<main class="container">
+  <section class="intro">
+    <div>
+      <p class="eyebrow">RINGKASAN PERANGKAT</p>
+      <h2>Pantau kondisi kotak sampah</h2>
+      <p class="muted">Pantau status sensor infrared dan penutup kotak sampah dari perangkat ESP32.</p>
+    </div>
+    <div id="device-state" class="device-state offline"><i></i><span id="online-text">ESP32 Offline</span></div>
+  </section>
+
+  <section class="metrics">
+    <article class="metric-card">
+      <div class="metric-head"><span class="symbol green">⌁</span><span>Sensor Infrared</span></div>
+      <div id="sensor-status" class="metric-value">Belum ada data</div>
+      <p id="sensor-note" class="metric-note">Status deteksi objek</p>
+    </article>
+    <article class="metric-card">
+      <div class="metric-head"><span class="symbol blue">↕</span><span>Penutup Kotak</span></div>
+      <div id="lid-status" class="metric-value">Tertutup</div>
+      <p class="metric-note">Dikendalikan servo</p>
+    </article>
+    <article class="metric-card">
+      <div class="metric-head"><span class="symbol orange">◷</span><span>Aktivitas Terakhir</span></div>
+      <div id="last-activity" class="metric-value smaller">Belum ada aktivitas</div>
+      <p class="metric-note">Waktu objek terdeteksi</p>
+    </article>
+    <article class="metric-card">
+      <div class="metric-head"><span class="symbol purple">⌁</span><span>ID Perangkat</span></div>
+      <div id="device-id" class="metric-value">TRASH-001</div>
+      <p class="metric-note">Identitas ESP32</p>
+    </article>
+  </section>
+
+  <section class="panels">
+    <article class="panel">
+      <div class="panel-heading">
+        <div><p class="eyebrow">KONDISI TERKINI</p><h3>Visualisasi kotak sampah</h3></div>
+        <span class="live"><i></i> Pembaruan otomatis</span>
+      </div>
+      <div class="bin-scene" aria-hidden="true">
+        <div id="bin-lid" class="bin-lid"></div>
+        <div class="bin-body"><span></span><span></span><span></span><b>ST</b></div>
+        <div class="bin-base"></div>
+      </div>
+      <p id="bin-caption" class="caption">Menunggu data dari ESP32.</p>
+    </article>
+
+    <article class="panel">
+      <div class="panel-heading">
+        <div><p class="eyebrow">INFORMASI SISTEM</p><h3>Detail koneksi</h3></div>
+        <span class="info">i</span>
+      </div>
+      <div class="detail"><span>Koneksi ESP32</span><strong id="connection-detail">Belum terhubung</strong></div>
+      <div class="detail"><span>Data terakhir diterima</span><strong id="last-seen">Belum ada data</strong></div>
+      <div class="detail"><span>Jenis sensor</span><strong>Infrared FC-51</strong></div>
+      <div class="detail"><span>Pengendali</span><strong>ESP32 + Servo</strong></div>
+      <div class="notice"><b>!</b><p>FC-51 mendeteksi objek di depan sensor, bukan persentase kepenuhan sampah.</p></div>
+    </article>
+  </section>
+
+  <footer><span>Smart Trash Monitoring · PLN UP3 Palembang</span><span>Dicek: <strong id="checked-at">—</strong></span></footer>
+  <p id="error-message" class="error" role="status"></p>
+</main>
+</body>
+</html>
